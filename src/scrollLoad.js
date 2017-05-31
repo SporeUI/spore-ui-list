@@ -3,7 +3,7 @@
 
 @example
 
-var list = ScrollList({
+var list = ScrollLoad({
 	listNode : $('ul.list'),
 	loadingNode : $('.loading')
 });
@@ -51,7 +51,7 @@ list.init();
 
 var $win = window;
 
-function ScrollList(options) {
+function ScrollLoad(options) {
 	var that = {};
 
 	var conf = $.extend(
@@ -120,5 +120,5 @@ function ScrollList(options) {
 	return that;
 }
 
-module.exports = ScrollList;
+module.exports = ScrollLoad;
 

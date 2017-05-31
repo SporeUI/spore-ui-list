@@ -1,1 +1,1 @@
-exports.scrollList = require('./src/scrollList');
+exports.scrollLoad = require('./src/scrollLoad');
