@@ -1,0 +1,19 @@
+{
+  "name": "spore-ui-list",
+  "version": "0.1.0",
+  "description": "列表UI集合",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SporeUI/spore-ui-list.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SporeUI/spore-ui-list/issues"
+  },
+  "homepage": "https://github.com/SporeUI/spore-ui-list#readme"
+}
