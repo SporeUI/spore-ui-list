@@ -101,6 +101,14 @@ function ScrollLoad(options) {
 		that.checkScroll();
 	}
 
+	function reset() {
+		that.curPage = conf.curPage;
+		that.loadedAll = false;
+		that.listNode.html('');
+		that.setLoading();
+		that.checkScroll();
+	}
+
 	function init() {
 		that.curPage = conf.curPage;
 		that.loadedAll = false;
@@ -114,6 +122,7 @@ function ScrollLoad(options) {
 	that.request = function(page) {};
 	that.render = function(data) {};
 
+	that.reset = reset;
 	that.append = append;
 	that.checkScroll = checkScroll;
 	that.setLoading = setLoading;
