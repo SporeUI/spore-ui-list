@@ -49,7 +49,7 @@ list.init();
 
 **/
 
-var $win = window;
+var $win = $(window);
 
 function ScrollLoad(options) {
 	var that = {};
@@ -79,10 +79,10 @@ function ScrollLoad(options) {
 	}
 
 	function checkScroll() {
-		if (that.loadingNode.offset().top < $win.innerHeight + $win.scrollY) {
+		if (that.loadingNode.offset().top < window.innerHeight + window.scrollY) {
 			that.setLoading();
 			if (that.loadedAll) {
-				$($win).off('scroll', that.checkScroll);
+				$win.off('scroll', that.checkScroll);
 			} else {
 				that.request(that.curPage + 1);
 			}
@@ -101,11 +101,18 @@ function ScrollLoad(options) {
 		that.checkScroll();
 	}
 
+	function setEvents() {
+		$win.on('scroll', that.checkScroll);
+	}
+
 	function reset() {
 		that.curPage = conf.curPage;
-		that.loadedAll = false;
 		that.listNode.html('');
 		that.setLoading();
+		if (that.loadedAll) {
+			that.setEvents();
+		}
+		that.loadedAll = false;
 		that.checkScroll();
 	}
 
@@ -113,7 +120,7 @@ function ScrollLoad(options) {
 		that.curPage = conf.curPage;
 		that.loadedAll = false;
 		that.checkScroll();
-		$($win).on('scroll', that.checkScroll);
+		that.setEvents();
 	}
 
 	that.init = init;
@@ -122,6 +129,7 @@ function ScrollLoad(options) {
 	that.request = function(page) {};
 	that.render = function(data) {};
 
+	that.setEvents = setEvents;
 	that.reset = reset;
 	that.append = append;
 	that.checkScroll = checkScroll;
